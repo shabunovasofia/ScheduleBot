@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calendar Web App</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+  <h1>Выбери дату</h1>
+  <input type="date" id="date">
+  <input type="text" id="event" placeholder="Что за событие?">
+  <button onclick="sendData()">Отправить</button>
+
+  <script>
+    function sendData() {
+      const date = document.getElementById("date").value;
+      const event = document.getElementById("event").value;
+      Telegram.WebApp.sendData(JSON.stringify({ date: date, event: event }));
+      Telegram.WebApp.close();
+    }
+  </script>
+</body>
+</html>
